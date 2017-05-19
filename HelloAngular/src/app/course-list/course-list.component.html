@@ -1,6 +1,26 @@
 <h2>Course List</h2>
 
-<app-course-detail [courseTitle]="courseTitle1" [courseDesc]="'By Google'" (courseClicked)="CourseClicked($event)"></app-course-detail>
-<app-course-detail [courseTitle]="courseTitle2" [courseDesc]="'By Google'" (courseClicked)="CourseClicked($event)"></app-course-detail>
-<app-course-detail [courseTitle]="courseTitle3" [courseDesc]="'By Google'" (courseClicked)="CourseClicked($event)"></app-course-detail>
-<app-course-detail [courseTitle]="courseTitle4" [courseDesc]="'By Google'" (courseClicked)="CourseClicked($event)"></app-course-detail>
+<input type="text" [(ngModel)]="favoriteCourse" (blur)="userNameLostFocus($event)"/>
+<label>{{favoriteCourse}}</label>
+
+<label>Show Courses :</label>
+<input type="radio" name="showCourses" value="FREE" [(ngModel)]="coursesFilter"/>FREE
+<input type="radio" name="showCourses" value="PREMIUM" [(ngModel)]="coursesFilter"/>PREMIUM
+
+
+<!-- HOST -->
+
+<div *ngFor="let course of courses">
+<app-course-detail *ngIf="coursesFilter=='FREE' && !course.isPaid"
+            [courseTitle]="course.title" 
+            [courseDesc]="course.desc" 
+            [isPaid]="course.isPaid"
+            (courseClicked)="CourseClicked($event)">
+</app-course-detail>
+<app-course-detail *ngIf="coursesFilter=='PREMIUM' && course.isPaid"
+            [courseTitle]="course.title" 
+            [courseDesc]="course.desc" 
+            [isPaid]="course.isPaid"
+            (courseClicked)="CourseClicked($event)">
+</app-course-detail>
+</div>

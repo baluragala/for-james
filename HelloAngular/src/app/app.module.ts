@@ -6,14 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { CourseDetailComponent } from './course-detail.component';
-import { CourseListComponent } from './course-list/course-list.component'
+import { CourseListComponent } from './course-list/course-list.component';
+import { CourseCartComponent } from './course-cart/course-cart.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     CourseDetailComponent,
-    CourseListComponent
+    CourseListComponent,
+    CourseCartComponent
   ],
   imports: [
     BrowserModule,
