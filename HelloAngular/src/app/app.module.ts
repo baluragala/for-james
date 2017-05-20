@@ -7,7 +7,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { CourseDetailComponent } from './course-detail.component';
 import { CourseListComponent } from './course-list/course-list.component';
-import { CourseCartComponent } from './course-cart/course-cart.component'
+import { CourseCartComponent } from './course-cart/course-cart.component';
+import { SelectCoursesComponent } from './select-courses/select-courses.component';
+import { DelayDirective } from './delay.directive';
+import { CardComponent } from './card/card.component';
+import { UnpublishedDirective } from './unpublished.directive'
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { CourseCartComponent } from './course-cart/course-cart.component'
     HelloComponent,
     CourseDetailComponent,
     CourseListComponent,
-    CourseCartComponent
+    CourseCartComponent,
+    SelectCoursesComponent,
+    DelayDirective,
+    CardComponent,
+    UnpublishedDirective
   ],
   imports: [
     BrowserModule,

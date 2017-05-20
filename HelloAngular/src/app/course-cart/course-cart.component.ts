@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class CourseCartComponent implements OnInit {
 
   currentStep=1;
+  selectedCourses=[];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  courseSelected(eventData){
+    this.selectedCourses.push(eventData);
   }
 
 }

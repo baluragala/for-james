@@ -13,6 +13,8 @@ export class CourseDetailComponent{
     courseDesc:string='This a framework from google'
     @Input() isPaid:boolean;
 
+    @Input() price:number;
+
     @Input() course
     
     style;

@@ -15,12 +15,16 @@
             [courseTitle]="course.title" 
             [courseDesc]="course.desc" 
             [isPaid]="course.isPaid"
+            [price]="course.price"
+            [course]="course"
             (courseClicked)="CourseClicked($event)">
 </app-course-detail>
 <app-course-detail *ngIf="coursesFilter=='PREMIUM' && course.isPaid"
             [courseTitle]="course.title" 
             [courseDesc]="course.desc" 
             [isPaid]="course.isPaid"
+            [price]="course.price"
+            [course]="course"
             (courseClicked)="CourseClicked($event)">
 </app-course-detail>
 </div>

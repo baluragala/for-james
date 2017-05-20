@@ -1,9 +1,9 @@
 <h3>Your Purchase Flow</h3>
 <div [ngSwitch]="currentStep">
-  <div *ngSwitchCase="1"><p>Select Courses</p></div>
+  <app-select-courses *ngSwitchCase="1" (courseSelectedEvent)="courseSelected($event)"><p>Select Courses</p></app-select-courses>
   <div *ngSwitchCase="2"><p>Shipping Details</p></div>
   <div *ngSwitchCase="3"><p>Review Order</p></div>
   <div *ngSwitchCase="4"><p>Thank You</p></div>
   <div *ngSwitchDefault><p>Your order completed</p></div>
 </div>
-<input *ngIf="currentStep > 4 ? false : true" type="button" value="Next>>" (click)="currentStep=currentStep+1">
+<input *ngIf=" (currentStep > 4) || (selectedCourses.length == 0) ? false : true" type="button" value="Next>>" (click)="currentStep=currentStep+1">

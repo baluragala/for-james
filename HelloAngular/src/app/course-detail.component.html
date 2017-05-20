@@ -1,5 +1,7 @@
 <div (click)="OnClick()" [ngClass]="currentClass">
-    <h2>{{courseTitle}}</h2>
-    <p>{{courseDesc}}</p>
-    <pre>{{ isPaid ? "PREMIUM" : "FREE"}}</pre>
+    <h2>{{courseTitle | uppercase }}</h2>
+    <p>{{courseDesc | lowercase }}</p>
+    <pre appUnpublished>{{ isPaid ? "PREMIUM" : "FREE"}}</pre>
+    <pre>{{price | currency:'GBP':true }}</pre>
+    <pre>{{course | json }}</pre>
 </div>

@@ -17,47 +17,46 @@ export class CourseListComponent implements OnInit {
   course = {
     title:'angular',
     desc:'by google',
-    isPaid:false
+    isPaid:false,
+    price:0
   }
 
   courses= [
     {
     title:'angular1',
     desc:'by google',
-    isPaid:true
+    isPaid:true,
+     price:100
   },
   {
     title:'angular2',
-    desc:'by google'
+    desc:'by google',
+    isPaid:true,
+    price:200
   },
   {
     title:'angular3',
     desc:'by google',
-    isPaid:true
+    isPaid:true,
+     price:300
   },
   {
     title:'angular4',
     desc:'by google',
-    isPaid:false
+    isPaid:false,
+     price:0
   },
   {
     title:'angular5',
     desc:'by google',
-    isPaid:true
+    isPaid:true,
+     price:150
   },
   {
     title:'angular6',
     desc:'by google',
-    isPaid:false
-  },
-  {
-    title:'angular7',
-    desc:'by google'
-  },
-  {
-    title:'angular8',
-    desc:'by google',
-    isPaid:false
+    isPaid:false,
+    price:0
   }
   ]
   favoriteCourse:string = 'Intial Value';

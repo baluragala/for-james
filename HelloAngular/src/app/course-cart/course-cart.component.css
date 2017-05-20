@@ -1,0 +1,6 @@
+.disabled {
+    visibility: hidden
+}
+.enabled{
+    visibility: visible
+}
