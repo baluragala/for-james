@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import { CourseService } from '../course.service'
 
 @Component({
   selector: 'app-course-list',
@@ -21,47 +22,16 @@ export class CourseListComponent implements OnInit {
     price:0
   }
 
-  courses= [
-    {
-    title:'angular1',
-    desc:'by google',
-    isPaid:true,
-     price:100
-  },
-  {
-    title:'angular2',
-    desc:'by google',
-    isPaid:true,
-    price:200
-  },
-  {
-    title:'angular3',
-    desc:'by google',
-    isPaid:true,
-     price:300
-  },
-  {
-    title:'angular4',
-    desc:'by google',
-    isPaid:false,
-     price:0
-  },
-  {
-    title:'angular5',
-    desc:'by google',
-    isPaid:true,
-     price:150
-  },
-  {
-    title:'angular6',
-    desc:'by google',
-    isPaid:false,
-    price:0
-  }
-  ]
+  courses;
+  //private courseService:CourseService
+
   favoriteCourse:string = 'Intial Value';
 
-  constructor() { }
+  constructor( private courseService:CourseService, @Inject('API_KEY')private apiKey) { 
+    console.log(this.courseService, this.apiKey);
+    //this.courseService =  courseService;
+    this.courses =  this.courseService.getCourses();
+  }
 
   ngOnInit() {
   }

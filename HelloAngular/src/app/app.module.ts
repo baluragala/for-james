@@ -13,6 +13,12 @@ import { DelayDirective } from './delay.directive';
 import { CardComponent } from './card/card.component';
 import { UnpublishedDirective } from './unpublished.directive'
 
+import { SharedModule } from './shared/shared.module'
+import { CourseService } from './course.service'
+import { CourseNextVersionService } from './course-next-version.service'
+import { CourseDebugService } from './course-debug.service';
+import { AddCourseComponent } from './add-course/add-course.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +29,32 @@ import { UnpublishedDirective } from './unpublished.directive'
     SelectCoursesComponent,
     DelayDirective,
     CardComponent,
-    UnpublishedDirective
+    UnpublishedDirective,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    //CourseService, // short hand
+    // {
+    //   provide:CourseService, useClass:CourseDebugService
+    // } // map style
+    { provide:'ENV',useValue:'PROD'},
+    { provide:'API_KEY', useValue:'wsd$sdfsgdf15%lkjl99**'},
+    {
+      provide:CourseService, useFactory: function(env, apiKey){
+        if(env == 'DEV')
+          return new CourseDebugService();
+        else
+          return new CourseNextVersionService();
+      },
+      deps:['ENV','API_KEY']
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
