@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -17,7 +17,17 @@ import { SharedModule } from './shared/shared.module'
 import { CourseService } from './course.service'
 import { CourseNextVersionService } from './course-next-version.service'
 import { CourseDebugService } from './course-debug.service';
-import { AddCourseComponent } from './add-course/add-course.component'
+import { AddCourseComponent } from './add-course/add-course.component';
+import { AddAuthorComponent } from './add-author/add-author.component'
+
+
+function serviceFactory(env, apiKey){
+        if(env == 'DEV')
+          return new CourseDebugService();
+        else
+          return new CourseNextVersionService();
+        }
+
 
 @NgModule({
   declarations: [
@@ -30,11 +40,13 @@ import { AddCourseComponent } from './add-course/add-course.component'
     DelayDirective,
     CardComponent,
     UnpublishedDirective,
-    AddCourseComponent
+    AddCourseComponent,
+    AddAuthorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     SharedModule
   ],
@@ -46,12 +58,7 @@ import { AddCourseComponent } from './add-course/add-course.component'
     { provide:'ENV',useValue:'PROD'},
     { provide:'API_KEY', useValue:'wsd$sdfsgdf15%lkjl99**'},
     {
-      provide:CourseService, useFactory: function(env, apiKey){
-        if(env == 'DEV')
-          return new CourseDebugService();
-        else
-          return new CourseNextVersionService();
-      },
+      provide:CourseService, useFactory: serviceFactory,
       deps:['ENV','API_KEY']
     }
     ],

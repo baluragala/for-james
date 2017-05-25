@@ -1,17 +1,33 @@
-<h4>
-  ADD COURSE
-</h4>
-<form #courseForm="ngForm">
-    <fieldset>
-      <legend>Add Course</legend>
-      <label>
-        Course Title :
-        <input type="text" name="courseTitle" />
-      </label>
-      <label>
-        Course Desc :
-        <input type="text" name="courseDesc" />
-      </label>
-      <input type="submit" value="Add"/>
-    </fieldset>
-</form>
+<div class="container">
+
+  <h2>Add Course</h2>
+  <form #courseForm="ngForm" (submit)="OnSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" required
+      name="title" minlength="5" maxlength="30"
+      [(ngModel)]="course.title"/>
+      <span *ngIf="courseForm.form.controls.title?.dirty 
+      && courseForm.form.controls.title?.errors">Title is required</span>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" rows="5" id="description" required
+       name="desc" 
+      [(ngModel)]="course.desc"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select class="form-control" id="category"
+          name="category" 
+      [(ngModel)]="course.category"     
+      >
+        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!courseForm.form.valid">Submit</button>
+
+  </form>
+</div>
