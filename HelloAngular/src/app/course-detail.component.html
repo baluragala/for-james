@@ -1,5 +1,5 @@
 <div (click)="OnClick()" [ngClass]="currentClass">
-    <h2>{{courseTitle | uppercase }}</h2>
+    <h2><a [routerLink]="['/courses',courseTitle]" [queryParams]="{ token:'1223', clientId:100, extras:'qwerty'}">{{courseTitle | uppercase }}</a></h2>
     <p>{{courseDesc | lowercase }}</p>
     <pre appUnpublished>{{ isPaid ? "PREMIUM" : "FREE"}}</pre>
     <pre>{{price | currency:'GBP':true }}</pre>

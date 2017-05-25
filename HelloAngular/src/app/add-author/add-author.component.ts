@@ -25,6 +25,8 @@ export class AddAuthorComponent implements OnInit {
   authorForm:FormGroup;
   //fb:FormBuilder;
 
+  isFormSubmitted:boolean=false;
+
   constructor(private fb:FormBuilder) { }
 
   ngOnInit() {
@@ -57,7 +59,7 @@ export class AddAuthorComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    this.isFormSubmitted=true;
   }
 
   populate(){

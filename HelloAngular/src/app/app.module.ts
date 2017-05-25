@@ -19,11 +19,17 @@ import { CourseNextVersionService } from './course-next-version.service'
 import { CourseDebugService } from './course-debug.service';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { AddAuthorComponent } from './add-author/add-author.component'
+import { NotFoundComponentComponent } from './shared/not-found-component.component'
 
+import {RouterModule} from '@angular/router'
 
-function serviceFactory(env, apiKey){
+import { AppRoutes} from './app.routes';
+import { CourseAdditionalDetailsComponent } from './course-additional-details/course-additional-details.component'
+import { PaidCourseGaurdService } from './paid-course-gaurd.service';
+
+export function serviceFactory(env, apiKey){
         if(env == 'DEV')
-          return new CourseDebugService();
+          return new CourseService();
         else
           return new CourseNextVersionService();
         }
@@ -41,26 +47,29 @@ function serviceFactory(env, apiKey){
     CardComponent,
     UnpublishedDirective,
     AddCourseComponent,
-    AddAuthorComponent
+    AddAuthorComponent,
+    CourseAdditionalDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     //CourseService, // short hand
     // {
     //   provide:CourseService, useClass:CourseDebugService
     // } // map style
-    { provide:'ENV',useValue:'PROD'},
+    { provide:'ENV',useValue:'DEV'},
     { provide:'API_KEY', useValue:'wsd$sdfsgdf15%lkjl99**'},
     {
       provide:CourseService, useFactory: serviceFactory,
       deps:['ENV','API_KEY']
-    }
+    },
+    PaidCourseGaurdService
     ],
   bootstrap: [AppComponent]
 })

@@ -3,10 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CourseService {
 
-  constructor() { }
-
-  getCourses() {
-    let courses= [
+  courses= [
             {
             title:'angular1',
             desc:'by google',
@@ -44,6 +41,15 @@ export class CourseService {
             price:0
           }
       ]
-  return courses;
+
+  constructor() { }
+
+  isPaid(courseId:string){
+    let filteredCourses = this.courses.filter( course => course.title == courseId );
+    return filteredCourses[0].isPaid;
+  }
+
+  getCourses() {
+    return this.courses;
   }
 }
