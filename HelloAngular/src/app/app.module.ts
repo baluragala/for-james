@@ -27,12 +27,12 @@ import { AppRoutes} from './app.routes';
 import { CourseAdditionalDetailsComponent } from './course-additional-details/course-additional-details.component'
 import { PaidCourseGaurdService } from './paid-course-gaurd.service';
 
-export function serviceFactory(env, apiKey){
-        if(env == 'DEV')
-          return new CourseService();
-        else
-          return new CourseNextVersionService();
-        }
+// export function serviceFactory(env, apiKey){
+//         if(env == 'DEV')
+//           return new CourseService();
+//         else
+//           return new CourseNextVersionService();
+//         }
 
 
 @NgModule({
@@ -65,10 +65,7 @@ export function serviceFactory(env, apiKey){
     // } // map style
     { provide:'ENV',useValue:'DEV'},
     { provide:'API_KEY', useValue:'wsd$sdfsgdf15%lkjl99**'},
-    {
-      provide:CourseService, useFactory: serviceFactory,
-      deps:['ENV','API_KEY']
-    },
+    CourseService,
     PaidCourseGaurdService
     ],
   bootstrap: [AppComponent]

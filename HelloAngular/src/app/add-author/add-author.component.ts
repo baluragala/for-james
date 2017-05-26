@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl, Validators, FormBuilder } from '@angular/forms';
-
+import {Http, Headers, RequestOptions } from '@angular/http'
 @Component({
   selector: 'app-add-author',
   templateUrl: './add-author.component.html',
@@ -27,7 +27,7 @@ export class AddAuthorComponent implements OnInit {
 
   isFormSubmitted:boolean=false;
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private http:Http) { }
 
   ngOnInit() {
     // this.authorForm = new FormGroup({
@@ -59,7 +59,10 @@ export class AddAuthorComponent implements OnInit {
   }
 
   onSubmit(){
-    this.isFormSubmitted=true;
+    let headers = new Headers({'Content-Type':'application/json','X-Auth-Token':'qaw#edtghs&tg'})
+    let options = new RequestOptions({headers:headers});
+    this.http.post('http://localhost:3000/authors',this.authorForm.value, options)
+    .subscribe(response => console.log(response.json()))
   }
 
   populate(){

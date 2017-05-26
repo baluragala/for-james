@@ -31,6 +31,8 @@ export class CourseListComponent implements OnInit {
     console.log(this.courseService, this.apiKey);
     //this.courseService =  courseService;
     this.courses =  this.courseService.getCourses();
+    this.courseService.getAuthorByCourse('6');
+    this.courseService.getAllDetails();
   }
 
   ngOnInit() {

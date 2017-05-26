@@ -1,0 +1,136 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "author": 1,
+      "profileDetails": "More about author"
+    },
+    {
+      "id": 2,
+      "author": 2,
+      "profileDetails": "More about author"
+    },
+    {
+      "id": 3,
+      "author": 3,
+      "profileDetails": "More about author"
+    },
+    {
+      "id": 4,
+      "author": 4,
+      "profileDetails": "More about author"
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "baluragala1",
+      "qualification": "Masters"
+    },
+    {
+      "id": 2,
+      "name": "baluragala2",
+      "qualification": "Masters"
+    },
+    {
+      "id": 3,
+      "name": "baluragala3",
+      "qualification": "Masters"
+    },
+    {
+      "id": 4,
+      "name": "baluragala4",
+      "qualification": "Masters"
+    },
+    {
+      "firstName": "Balakrishna",
+      "lastName": "Ragala",
+      "address": {
+        "street": "KSVK School Road",
+        "city": "Bangalore",
+        "state": "KARNATAKA"
+      },
+      "id": 5
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "angular1",
+      "desc": "by google",
+      "isPaid": true,
+      "price": 100,
+      "author": 1
+    },
+    {
+      "id": 2,
+      "title": "angular2",
+      "desc": "by google",
+      "isPaid": true,
+      "price": 200,
+      "author": 2
+    },
+    {
+      "id": 3,
+      "title": "angular3",
+      "desc": "by google",
+      "isPaid": true,
+      "price": 300,
+      "author": 1
+    },
+    {
+      "id": 4,
+      "title": "angular4",
+      "desc": "by google",
+      "isPaid": false,
+      "price": 0,
+      "author": 4
+    },
+    {
+      "id": 5,
+      "title": "angular5",
+      "desc": "by google",
+      "isPaid": true,
+      "price": 150,
+      "author": 2
+    },
+    {
+      "id": 6,
+      "title": "angular6",
+      "desc": "by google",
+      "isPaid": false,
+      "price": 0,
+      "author": 4
+    },
+    {
+      "title": "ReactJS",
+      "desc": "by fb",
+      "isPaid": true,
+      "price": 120,
+      "id": 7,
+      "author": 1
+    },
+    {
+      "title": "Precat",
+      "desc": "by fb comm",
+      "isPaid": true,
+      "price": 120,
+      "id": 8,
+      "author": 1
+    }
+  ]
+}
