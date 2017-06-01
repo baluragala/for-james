@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CourseService } from './course.service';
 import { CourseDebugService } from './course-debug.service';
 
